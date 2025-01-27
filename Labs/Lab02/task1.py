@@ -31,7 +31,7 @@ class Agent :
         self.patch()
 
 system = System()
-agent = Agent(sys)
+agent = Agent(system)
 system.state()
 agent.search()
 system.state()
