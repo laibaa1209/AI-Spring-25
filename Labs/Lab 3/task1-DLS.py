@@ -33,7 +33,15 @@ class Agent:
             return None
         
         return dfs(start, 0, [])
-            
+
+    def act(self, start, env, depth_limit):
+        print(f"Agent starting search for goal '{self.goal}' from node '{start}' with depth limit {depth_limit}.")
+        result = self.dls_search(start, env, depth_limit)
+        if result:
+            print(f"Action Result: {result}")
+        else:
+            print(f"Goal '{self.goal}' not found within depth limit {depth_limit}.")
+
 def main():
     graph = {
         'A': ['B', 'C'],
@@ -43,15 +51,9 @@ def main():
     }
 
     env = Environment(graph)
-    agent = Agent('G')  # Set the goal node
+    agent = Agent('G') 
 
-    depth_limit = 3  # Set a limit to search depth
-    result = agent.dls_search('A', env, depth_limit)
-    
-    if result:
-        print(f"Path to goal: {result}")
-    else:
-        print("Goal not found within depth limit.")
+    depth_limit = 3  
+    agent.act('A', env, depth_limit)  
 
 main()
-            
