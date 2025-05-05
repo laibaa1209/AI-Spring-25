@@ -62,3 +62,14 @@ print("Mean LOOCV MSE:", np.mean(loo_mse))
 df = pd.read_csv('your_dataset.csv')
 X = df.drop('target_column', axis=1)
 y = df['target_column']
+
+
+#REG PLOT
+# ---------- Regression Line (LOBEST) Plot using Seaborn ----------
+plt.figure(figsize=(8, 5))
+sns.regplot(x=x_test.iloc[:, 0], y=y_test, scatter_kws={"color": "blue"}, line_kws={"color": "red"})
+plt.title("Regression Line (LOBEST) on Test Data")
+plt.xlabel(data.feature_names[0])
+plt.ylabel("Target")
+plt.grid(True)
+plt.show()
